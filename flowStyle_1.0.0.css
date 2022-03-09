@@ -77,20 +77,75 @@ fs-content {
     padding: 1em;
 }
 
+fs-msg-content {
+    position: absolute;
+    display: flex;
+    align-items: top;
+    justify-content: right;
+    flex-flow: column;
+
+    width: 50%;
+    height: 100vh;
+    left: 50%;
+
+    padding-top: 0.5em;
+    padding-right: 0.25em;
+
+    overflow: hidden;
+}
+
+fs-msg {
+    display: block;
+
+    width: 100%;
+    height: fit-content;
+    padding: 0.5em;
+    margin-bottom: 0.25em;
+
+    background-color: var(--med-color);
+    border-radius: 0.5em;
+
+    opacity: 1;
+    margin-left: 150%;
+
+    transition: 0.25s linear all;
+}
+
+.fs-msg-shown {
+    opacity: 1;
+    margin-left: 0;
+}
+
+.fs-msg-info {
+    border-bottom: 0.1em solid skyblue;
+}
+
+.fs-msg-alert {
+    border-bottom: 0.1em solid yellow;
+}
+
+.fs-msg-error {
+    border-bottom: 0.1em solid red;
+}
+
 @media only screen and (max-width: 600px) {
     fs-sidebar {
         display: block;
         position: absolute;
         left: -100vw;
         width: 100%;
+        opacity: 0;
 
         background-color: var(--backdrop-color);
         
         transition: 0.3s ease-in-out all;
+
+        z-index: 50;
     }
 
     .fs-opened-sidebar {
         left: 0;
+        opacity: 1;
     }
 
     fs-sidebar-button {
@@ -114,6 +169,8 @@ fs-content {
         border-right: var(--mark-border);
         
         transition: 0.3s ease-in-out all;
+
+        z-index: 50;
     }
 
     .fs-opened-sidebar {
