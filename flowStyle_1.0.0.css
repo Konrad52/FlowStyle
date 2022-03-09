@@ -36,6 +36,8 @@
     --btn-shadow-03: 0em 0.00em 0.15em 0.05em rgba(0, 0, 0, 0.5);
 
     --mark-border: 0.3em solid var(--mark-color);
+
+    --menu-height: 2.5em;
 }
 
 * {
@@ -68,19 +70,69 @@ fs-header {
     z-index: 100;
 }
 
+fs-menu {
+    display: flex;
+    width: 100%;
+    height: var(--menu-height);
+
+    background-color: var(--med-color);
+    border-bottom: 0.15em solid var(--mark-color);
+    box-shadow: var(--basic-shadow);
+}
+
+fs-menu-item {
+    user-select: none;
+
+    flex: 1 1 auto;
+    text-align: center;
+    line-height: calc(var(--menu-height) - 0.5em);
+    background-color: var(--med-color);
+    border-left: 0.1em solid white;
+    border-right: 0.1em solid white;
+    border-radius: 0.25em;
+    padding: 0.2em;
+    margin: 0.05em;
+
+    transition: 0.1s linear all;
+}
+
+fs-menu-item:hover {
+    filter: brightness(1.3);
+    line-height: calc(var(--menu-height) - 0.8em);
+}
+
+fs-menu-item:active {
+    filter: brightness(0.8);
+    line-height: calc(var(--menu-height) - 0.4em);
+}
+
 fs-content {
     display: block;
 
     width: 100%;
     height: auto;
+    padding: 0.25em;
+}
 
-    padding: 1em;
+fs-flexblock {
+    display: block;
+    flex: 1 1 auto;
+    flex-direction: column;
+    width: max-content;
+    padding: 0.5em;
+    margin: 0.25em;
+    
+    background-color: var(--med-color);
+    border-radius: 0.5em;
+}
+
+.fs-whitespaceless {
+    white-space: nowrap;
 }
 
 fs-msg-content {
     position: absolute;
     display: flex;
-    align-items: top;
     justify-content: right;
     flex-flow: column;
 
@@ -92,6 +144,8 @@ fs-msg-content {
     padding-right: 0.25em;
 
     overflow: hidden;
+
+    pointer-events: none;
 }
 
 fs-msg {
@@ -129,12 +183,18 @@ fs-msg {
 }
 
 @media only screen and (max-width: 600px) {
+    :root {
+        --base-size: 12px;
+    }
+    
     fs-sidebar {
         display: block;
         position: absolute;
         left: -100vw;
         width: 100%;
         opacity: 0;
+
+        overflow-y: auto;
 
         background-color: var(--backdrop-color);
         
@@ -164,6 +224,8 @@ fs-msg {
         height: 100vh;
         padding: 0em 0.5em;
         opacity: 0; 
+
+        overflow-y: auto;
 
         background-color: var(--med-color);
         border-right: var(--mark-border);
@@ -231,6 +293,12 @@ fs-sidebar-button:active {
 
 fs-sidebar-button:active::before {
     margin-left: 1em;
+}
+
+fs-flexboth {
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
 
 fs-flexcoulumn {
@@ -308,6 +376,7 @@ h6 {
 p {
     text-align: justify;
     padding: 1em;
+    white-space: normal;
 }
 
 fs-button {
