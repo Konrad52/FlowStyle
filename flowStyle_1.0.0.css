@@ -1,0 +1,296 @@
+/*
+
+    FlowStyle 1.0.0
+    (https://github.com/Konrad52/FlowStyle)
+
+    Made by Konrád Kiss in one day on 09.03.2022. (One day before it's use)
+    This code falls under the 2022 MIT License.
+
+    This CSS file has everything necessary to make Bootstrap obsolete for
+    myself (aka. the author).
+
+    The main reason to create such a stylesheet is the fact that the 
+    after-mentioned framework is too bloated and visually unappealing to me,
+    while I had to use some kind of helping tool to prototype a website 
+    for the 2022 Skills Junior competition.
+
+    This file is for the stylesheets used by FlowStyle.
+
+*/
+:root {
+    --main-color: rgb(25, 25, 25);
+    --med-color: rgb(60, 60, 60);
+    --light-color: rgb(96, 96, 96);
+    
+    --mark-color: rgb(128, 64, 255);
+    --backdrop-color: rgba(10, 10, 10, 0.8);
+
+    --base-font: Verdana, Geneva, Tahoma, sans-serif;
+    --base-size: 16px;
+    --base-color: rgb(255, 255, 255);
+
+    --basic-shadow: 0em 0em 0.3em 0.3em rgba(0, 0, 0, 0.50);
+    
+    --btn-shadow-01: 0em 0.00em 0.00em 0.00em rgba(0, 0, 0, 0.5);
+    --btn-shadow-02: 0em 0.25em 0.25em 0.05em rgba(0, 0, 0, 0.45);
+    --btn-shadow-03: 0em 0.00em 0.15em 0.05em rgba(0, 0, 0, 0.5);
+
+    --mark-border: 0.3em solid var(--mark-color);
+}
+
+* {
+    box-sizing: border-box;
+    text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.50);
+}
+
+body, html {
+    margin: 0;
+    color: var(--base-color);
+    font-size: var(--base-size);
+    font-family: var(--base-font);
+    background-color: var(--main-color);
+}
+
+fs-header {
+    display: block;
+    position: sticky;
+    top: 0;
+
+    width: 100%;
+    height: auto;
+    min-height: 3em;
+
+    background-color: var(--med-color);
+    box-shadow: var(--basic-shadow);
+
+    border-bottom: var(--mark-border);
+
+    z-index: 100;
+}
+
+fs-content {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    padding: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+    fs-sidebar {
+        display: block;
+        position: absolute;
+        left: -100vw;
+        width: 100%;
+
+        background-color: var(--backdrop-color);
+        
+        transition: 0.3s ease-in-out all;
+    }
+
+    .fs-opened-sidebar {
+        left: 0;
+    }
+
+    fs-sidebar-button {
+        background-color: var(--med-color);
+        padding: 1em;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    fs-sidebar {
+        display: block;
+        position: absolute;
+
+        left: -100vw;
+        width: 15em;
+        height: 100vh;
+        padding: 0em 0.5em;
+        opacity: 0; 
+
+        background-color: var(--med-color);
+        border-right: var(--mark-border);
+        
+        transition: 0.3s ease-in-out all;
+    }
+
+    .fs-opened-sidebar {
+        left: 0;
+        opacity: 1;
+    }
+
+    fs-sidebar-button {
+        padding: 0.5em;
+        background-color: var(--med-color);
+        border-radius: 0.25em;
+    }
+}
+
+fs-sidebar::before {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 0.1em;
+    
+    background-color: white;
+
+    margin-top: 0.1em;
+    border-radius: 0.1em;
+}
+
+fs-sidebar-button {
+    user-select: none;
+
+    display: flex;
+    border-bottom: 0.05em solid white;
+    width: 100%;
+
+    transition: 0.1s linear all;
+}
+
+fs-sidebar-button::before {
+    content: ">";
+    margin-right: 0.5em;
+    font-weight: bold;
+    
+    transform: scale(0.5, 1);
+
+    transition: 0.1s linear all;
+}
+
+fs-sidebar-button:hover {
+    filter: brightness(1.3);
+}
+
+fs-sidebar-button:hover::before {
+    margin-left: 0.5em;
+}
+
+fs-sidebar-button:active {
+    filter: brightness(0.8);
+}
+
+fs-sidebar-button:active::before {
+    margin-left: 1em;
+}
+
+fs-flexcoulumn {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    flex-direction: column;
+    flex-flow: column;
+}
+
+fs-flexrow {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    flex-direction: row;
+    flex-flow: row;
+}
+
+fs-flexleft {
+    display: flex;
+    box-sizing: unset;
+    flex: 1 1 auto;
+}
+
+fs-flexmiddle {
+    display: flex;
+    box-sizing: unset;
+    flex: 1 1 100%;
+}
+
+fs-flexright {
+    display: flex;
+    box-sizing: unset;
+    flex: 1 1 auto;
+}
+
+fs-center-text {
+    width: fit-content;
+    height: fit-content;
+    margin: auto 0;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+h2 {
+    font-size: 2.66em;
+    margin: 0;
+}
+
+h3 {
+    font-size: 2.33em;
+    margin: 0;
+}
+
+h4 {
+    font-size: 2em;
+    margin: 0;
+}
+
+h5 {
+    font-size: 1.66em;
+    margin: 0;
+}
+
+h6 {
+    font-size: 1.33em;
+    margin: 0;
+}
+
+p {
+    text-align: justify;
+    padding: 1em;
+}
+
+fs-button {
+    user-select: none;
+
+    display: inline-block;
+    
+    --size: calc(2.5em);
+
+    min-width: var(--size);
+    min-height: var(--size);
+
+    text-align: center;
+    line-height: calc(var(--size) / 2);
+
+    padding: 0.5em;
+    margin: 0.5em;
+
+    background-color: var(--light-color);
+    border: var(--basic-border);
+    border-radius: 0.5em;
+
+    box-shadow: var(--btn-shadow-01);
+    transform: translate(0, 0);
+
+    transition: 0.1s linear all;
+}
+
+fs-button:hover {
+    box-shadow: var(--btn-shadow-02);
+    transform: translate(0, -0.05em);
+    filter: brightness(1.1);
+}
+
+fs-button:active {
+    box-shadow: var(--btn-shadow-03);
+    transform: translate(0, 0.1em);
+    filter: brightness(0.9);
+}
+
+.fs-menu-icon::after {
+    content: "☰";
+}
