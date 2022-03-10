@@ -70,16 +70,6 @@ fs-header {
     z-index: 100;
 }
 
-fs-menu {
-    display: flex;
-    width: 100%;
-    height: var(--menu-height);
-
-    background-color: var(--med-color);
-    border-bottom: 0.15em solid var(--mark-color);
-    box-shadow: var(--basic-shadow);
-}
-
 fs-menu-item {
     user-select: none;
 
@@ -163,6 +153,8 @@ fs-msg {
     margin-left: 150%;
 
     transition: 0.25s linear all;
+
+    filter: drop-shadow(0.2em 0.2em 0.2em #00000088) brightness(1.2);
 }
 
 .fs-msg-shown {
@@ -212,6 +204,38 @@ fs-msg {
         background-color: var(--med-color);
         padding: 1em;
     }
+
+    fs-menu {
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+        height: auto;
+    
+        background-color: var(--med-color);
+        border-bottom: 0.15em solid var(--mark-color);
+        box-shadow: var(--basic-shadow);
+    }
+
+    fs-menu-item {
+        border: none;
+        border-top: 0.1em solid white;
+        border-bottom: 0.1em solid white;
+        height: 3em;
+        line-height: 2.5em;
+    }
+
+    fs-flexboth {
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+        flex-direction: column;
+    }
+
+    fs-flexblock {
+        flex-direction: row;
+        width: calc(100% - 0.5em);
+    }
 }
 
 @media only screen and (min-width: 600px) {
@@ -244,6 +268,24 @@ fs-msg {
         padding: 0.5em;
         background-color: var(--med-color);
         border-radius: 0.25em;
+    }
+
+    fs-menu {
+        display: flex;
+        width: 100%;
+        height: var(--menu-height);
+    
+        background-color: var(--med-color);
+        border-bottom: 0.15em solid var(--mark-color);
+        box-shadow: var(--basic-shadow);
+    }
+
+    fs-flexboth {
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+        flex-direction: row;
     }
 }
 
@@ -293,12 +335,6 @@ fs-sidebar-button:active {
 
 fs-sidebar-button:active::before {
     margin-left: 1em;
-}
-
-fs-flexboth {
-    display: flex;
-    width: 100%;
-    height: 100%;
 }
 
 fs-flexcoulumn {
